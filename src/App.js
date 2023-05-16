@@ -73,7 +73,11 @@ function App() {
 				</div>
 			</header>
 
-			<h1 className="title">Все кроссовки</h1>
+			<div className="top">
+				<h1 className="title">Все кроссовки</h1>
+				<input type="text" placeholder="Поиск..." className="searchInput" />
+			</div>
+
 			<div className="content">
 				<div className="card">
 					<img

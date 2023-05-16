@@ -146,13 +146,34 @@ input[type='submit'] {
 
 
 
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 60px;
+  margin-bottom: 30px;
+}
+
 .title {
   font-size: 32px;
   font-weight: 700;
   line-height: 39px;
-  padding: 40px 60px;
-  margin-bottom: 30px;
 }
+
+.searchInput {
+  border: 1px solid #F3F3F3;
+  border-radius: 10px;
+  padding: 15px 15px 15px 45px;
+  color: #C4C4C4;
+  background: url('../public/img/search.svg') no-repeat 15px center;
+}
+.searchInput::placeholder {
+  color: #C4C4C4;
+}
+.searchInput:focus {
+  outline: 1px solid #E7F6FF;
+}
+
 
 .content {
   padding: 40px 60px;
@@ -221,5 +242,5 @@ input[type='submit'] {
   .content {
     grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
   }
-  
+
 }

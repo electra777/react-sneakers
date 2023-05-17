@@ -80,6 +80,8 @@ function App() {
 
 			<div className="content">
 				<div className="card">
+					<button className="favorite"></button>
+
 					<img
 						width={133}
 						height={112}
@@ -99,6 +101,9 @@ function App() {
 					</div>
 				</div>
 				<div className="card">
+
+				<button className="favorite liked"></button>
+
 					<img width={133} height={112} src="/img/sneakers/Nike-Blazer-green.jpg" alt="nike" />
 					<p className="description">Мужские Кроссовки Nike Blazer Mid Suede</p>
 					<div className="bottomWrapper">
@@ -112,6 +117,9 @@ function App() {
 					</div>
 				</div>
 				<div className="card">
+
+				<button className="favorite"></button>
+
 					<img width={133} height={112} src="/img/sneakers/Nike-Blazer-green.jpg" alt="nike" />
 					<p className="description">Мужские Кроссовки Nike Blazer Mid Suede</p>
 					<div className="bottomWrapper">
@@ -125,6 +133,8 @@ function App() {
 					</div>
 				</div>
 				<div className="card">
+				<button className="favorite"></button>
+
 					<img width={133} height={112} src="/img/sneakers/Nike-Blazer-green.jpg" alt="nike" />
 					<p className="description">Мужские Кроссовки Nike Blazer Mid Suede</p>
 					<div className="bottomWrapper">

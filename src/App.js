@@ -1,6 +1,32 @@
 function App() {
 	return (
 		<div className="wrapper">
+			<div className="overlay">
+				<div className="drawer">
+					<h2 className="cartTitle">Корзина</h2>
+
+					<div className="cartItem">
+						<img src="/img/sneakers/1.jpg" alt="sneakers" width={70} height={70} />
+						<div className="cartDiscriptionWrapper">
+							<p className="cartDiscription">Мужские Кроссовки Nike Air Max 270</p>
+							<div className="priceSum">
+								12 999<span> руб.</span>
+							</div>
+						</div>
+						<button className="remove"></button>
+					</div>
+					<div className="cartItem">
+						<img src="/img/sneakers/1.jpg" alt="sneakers" width={70} height={70} />
+						<div className="cartDiscriptionWrapper">
+							<p className="cartDiscription">Мужские Кроссовки Nike Air Max 270</p>
+							<div className="priceSum">
+								12 999<span> руб.</span>
+							</div>
+						</div>
+						<button className="remove"></button>
+					</div>
+				</div>
+			</div>
 			<header className="header">
 				<div className="colLeft">
 					<img width={40} height={40} src="/img/logo.png" alt="logo" className="img" />
@@ -85,8 +111,8 @@ function App() {
 					<img
 						width={133}
 						height={112}
-						src="/img/sneakers/Nike-Blazer-green.jpg"
-						alt="nike"
+						src="/img/sneakers/1.jpg"
+						alt="sneakers"
 						className="sneakersImg"
 					/>
 					<p className="description">Мужские Кроссовки Nike Blazer Mid Suede</p>
@@ -101,10 +127,9 @@ function App() {
 					</div>
 				</div>
 				<div className="card">
+					<button className="favorite liked"></button>
 
-				<button className="favorite liked"></button>
-
-					<img width={133} height={112} src="/img/sneakers/Nike-Blazer-green.jpg" alt="nike" />
+					<img width={133} height={112} src="/img/sneakers/1.jpg" alt="sneakers" />
 					<p className="description">Мужские Кроссовки Nike Blazer Mid Suede</p>
 					<div className="bottomWrapper">
 						<div className="priceWrapper">
@@ -117,10 +142,9 @@ function App() {
 					</div>
 				</div>
 				<div className="card">
+					<button className="favorite"></button>
 
-				<button className="favorite"></button>
-
-					<img width={133} height={112} src="/img/sneakers/Nike-Blazer-green.jpg" alt="nike" />
+					<img width={133} height={112} src="/img/sneakers/1.jpg" alt="sneakers" />
 					<p className="description">Мужские Кроссовки Nike Blazer Mid Suede</p>
 					<div className="bottomWrapper">
 						<div className="priceWrapper">
@@ -133,9 +157,9 @@ function App() {
 					</div>
 				</div>
 				<div className="card">
-				<button className="favorite"></button>
+					<button className="favorite"></button>
 
-					<img width={133} height={112} src="/img/sneakers/Nike-Blazer-green.jpg" alt="nike" />
+					<img width={133} height={112} src="/img/sneakers/1.jpg" alt="sneakers" />
 					<p className="description">Мужские Кроссовки Nike Blazer Mid Suede</p>
 					<div className="bottomWrapper">
 						<div className="priceWrapper">

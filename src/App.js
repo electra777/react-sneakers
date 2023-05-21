@@ -5,25 +5,27 @@ function App() {
 				<div className="drawer">
 					<h2 className="cartTitle">Корзина</h2>
 
-					<div className="cartItem">
-						<img src="/img/sneakers/1.jpg" alt="sneakers" width={70} height={70} />
-						<div className="cartDiscriptionWrapper">
-							<p className="cartDiscription">Мужские Кроссовки Nike Air Max 270</p>
-							<div className="priceSum">
-								12 999<span> руб.</span>
+					<div className="items">
+						<div className="cartItem">
+							<img src="/img/sneakers/1.jpg" alt="sneakers" width={70} height={70} />
+							<div className="cartDiscriptionWrapper">
+								<p className="cartDiscription">Мужские Кроссовки Nike Air Max 270</p>
+								<div className="priceSum">
+									12 999<span> руб.</span>
+								</div>
 							</div>
+							<button className="remove"></button>
 						</div>
-						<button className="remove"></button>
-					</div>
-					<div className="cartItem">
-						<img src="/img/sneakers/1.jpg" alt="sneakers" width={70} height={70} />
-						<div className="cartDiscriptionWrapper">
-							<p className="cartDiscription">Мужские Кроссовки Nike Air Max 270</p>
-							<div className="priceSum">
-								12 999<span> руб.</span>
+						<div className="cartItem">
+							<img src="/img/sneakers/1.jpg" alt="sneakers" width={70} height={70} />
+							<div className="cartDiscriptionWrapper">
+								<p className="cartDiscription">Мужские Кроссовки Nike Air Max 270</p>
+								<div className="priceSum">
+									12 999<span> руб.</span>
+								</div>
 							</div>
+							<button className="remove"></button>
 						</div>
-						<button className="remove"></button>
 					</div>
 				</div>
 			</div>

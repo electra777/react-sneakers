@@ -27,6 +27,27 @@ function App() {
 							<button className="remove"></button>
 						</div>
 					</div>
+
+					<div className="cartTotalBlock">
+						<div className="infoSum">
+							<p>Итого:</p>
+							<div className="dashed"></div>
+							<div className="totalSum">
+								21 498<span> руб.</span>
+							</div>
+						</div>
+						<div className="infoSum">
+							<p>Налог 5%: </p>
+							<div className="dashed"></div>
+							<div className="totalSum">
+								1 074<span> руб.</span>
+							</div>
+						</div>
+						<button className="greenBtn">
+							Оформить заказ
+							<img src="/img/arrow.svg" alt="arrow"></img>
+						</button>
+					</div>
 				</div>
 			</div>
 

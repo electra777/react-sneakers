@@ -3,8 +3,10 @@ function App() {
 		<div className="wrapper">
 			<div className="overlay">
 				<div className="drawer">
-					<h2 className="cartTitle">Корзина</h2>
-
+					<div className="cartTop">
+						<h2 className="cartTitle">Корзина</h2>
+						<button className="remove"></button>
+					</div>
 					<div className="items">
 						<div className="cartItem">
 							<img src="/img/sneakers/1.jpg" alt="sneakers" width={70} height={70} />

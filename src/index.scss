@@ -282,6 +282,11 @@ z-index: 10;
   flex-direction: column;
 }
 
+.cartTop {
+  display: flex;
+  justify-content: space-between;
+}
+
 .cartTitle {
   font-size: 24px;
   font-weight: 700;

@@ -1,7 +1,9 @@
+import Card from './components/Card/Card';
+
 function App() {
 	return (
 		<div className="wrapper">
-			<div className="overlay">
+			<div style={{ display: 'none' }} className="overlay">
 				<div className="drawer">
 					<div className="cartTop">
 						<h2 className="cartTitle">Корзина</h2>
@@ -132,72 +134,7 @@ function App() {
 				</div>
 
 				<div className="content">
-					<div className="card">
-						<button className="favorite"></button>
-
-						<img
-							width={133}
-							height={112}
-							src="/img/sneakers/1.jpg"
-							alt="sneakers"
-							className="sneakersImg"
-						/>
-						<p className="description">Мужские Кроссовки Nike Blazer Mid Suede</p>
-						<div className="bottomWrapper">
-							<div className="priceWrapper">
-								<div className="price">Цена:</div>
-								<div className="priceSum">
-									12 999<span> руб.</span>
-								</div>
-							</div>
-							<button className="btnCart"></button>
-						</div>
-					</div>
-					<div className="card">
-						<button className="favorite liked"></button>
-
-						<img width={133} height={112} src="/img/sneakers/1.jpg" alt="sneakers" />
-						<p className="description">Мужские Кроссовки Nike Blazer Mid Suede</p>
-						<div className="bottomWrapper">
-							<div className="priceWrapper">
-								<div className="price">Цена:</div>
-								<div className="priceSum">
-									12 999<span> руб.</span>
-								</div>
-							</div>
-							<button className="btnCart inCart"></button>
-						</div>
-					</div>
-					<div className="card">
-						<button className="favorite"></button>
-
-						<img width={133} height={112} src="/img/sneakers/1.jpg" alt="sneakers" />
-						<p className="description">Мужские Кроссовки Nike Blazer Mid Suede</p>
-						<div className="bottomWrapper">
-							<div className="priceWrapper">
-								<div className="price">Цена:</div>
-								<div className="priceSum">
-									12 999<span> руб.</span>
-								</div>
-							</div>
-							<button className="btnCart"></button>
-						</div>
-					</div>
-					<div className="card">
-						<button className="favorite"></button>
-
-						<img width={133} height={112} src="/img/sneakers/1.jpg" alt="sneakers" />
-						<p className="description">Мужские Кроссовки Nike Blazer Mid Suede</p>
-						<div className="bottomWrapper">
-							<div className="priceWrapper">
-								<div className="price">Цена:</div>
-								<div className="priceSum">
-									12 999<span> руб.</span>
-								</div>
-							</div>
-							<button className="btnCart"></button>
-						</div>
-					</div>
+					<Card />
 				</div>
 			</div>
 		</div>

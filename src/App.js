@@ -5,9 +5,7 @@ import Header from './components/Header/Header';
 function App() {
 	return (
 		<div className="wrapper">
-			<div style={{ display: 'none' }} className="overlay">
-				<CartDrawer />
-			</div>
+			<CartDrawer />
 
 			<div className="container">
 				<Header />

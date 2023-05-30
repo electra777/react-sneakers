@@ -1,4 +1,5 @@
 function CartDrawer() {
+	const a = 0;
 	return (
 		<div style={{ display: 'none' }} className="overlay">
 			<div className="drawer">
@@ -7,7 +8,7 @@ function CartDrawer() {
 					<button className="remove"></button>
 				</div>
 				<div className="items">
-					<div className="cartItem">
+					<div className={a}>
 						<img src="/img/sneakers/1.jpg" alt="sneakers" width={70} height={70} />
 						<div className="cartDiscriptionWrapper">
 							<p className="cartDiscription">Мужские Кроссовки Nike Air Max 270</p>

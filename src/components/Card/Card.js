@@ -1,7 +1,14 @@
 import cn from 'classnames';
 import styles from './Card.module.scss';
+import { useState } from 'react';
 
 function Card() {
+	const [isInCart, setIsInCart] = useState(false);
+
+	const handleClickPlus = () => {
+		setIsInCart(!isInCart);
+	};
+
 	return (
 		<div className={styles.card}>
 			<button className={cn(styles.favorite, styles.liked)}></button>
@@ -21,7 +28,11 @@ function Card() {
 						12 999<span> руб.</span>
 					</div>
 				</div>
-				<button className={cn(styles.btnCart, styles.inCart)}></button>
+				<button
+					className={cn(styles.btnCart, {
+						[styles.inCart]: isInCart,
+					})}
+					onClick={handleClickPlus}></button>
 			</div>
 		</div>
 	);

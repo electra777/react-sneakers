@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import styles from './Card.module.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function Card() {
 	const [isInCart, setIsInCart] = useState(false);
@@ -8,6 +8,10 @@ function Card() {
 	const handleClickPlus = () => {
 		setIsInCart(!isInCart);
 	};
+
+	useEffect(() => {
+		console.log('Переменная изменилась');
+	}, [isInCart]);
 
 	return (
 		<div className={styles.card}>

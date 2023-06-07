@@ -9,9 +9,9 @@ function Card() {
 		setIsInCart(!isInCart);
 	};
 
-	useEffect(() => {
-		console.log('Переменная изменилась');
-	}, [isInCart]);
+	// useEffect(() => {
+	// 	console.log('Переменная изменилась');
+	// }, [isInCart]);
 
 	return (
 		<div className={styles.card}>

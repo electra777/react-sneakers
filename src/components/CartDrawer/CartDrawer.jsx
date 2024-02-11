@@ -1,13 +1,13 @@
 import styles from './CartDrawer.module.scss';
 
-function CartDrawer() {
+function CartDrawer(props) {
 	const a = 0;
 	return (
-		<div style={{ display: 'none' }} className={styles.overlay}>
+		<div className={styles.overlay}>
 			<div className={styles.drawer}>
 				<div className={styles.cartTop}>
 					<h2 className={styles.cartTitle}>Корзина</h2>
-					<button className={styles.remove}></button>
+					<button className={styles.remove} onClick={props.onClose}></button>
 				</div>
 				<div className={styles.items}>
 					<div className={styles.cartItem}>

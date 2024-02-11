@@ -1,6 +1,6 @@
 import styles from './Header.module.scss';
 
-function Header() {
+function Header(props) {
 	return (
 		<header className={styles.header}>
 			<div className={styles.colLeft}>
@@ -11,7 +11,7 @@ function Header() {
 				</div>
 			</div>
 			<div className={styles.colRight}>
-				<div className={styles.cartWrapper}>
+				<div className={styles.cartWrapper} onClick={props.onClickCart}>
 					<svg
 						width="20"
 						height="20"

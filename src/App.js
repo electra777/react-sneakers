@@ -14,7 +14,6 @@ function App() {
 			})
 			.then((data) => {
 				setItems(data);
-				console.log(data, 'data');
 			});
 	}, []);
 
@@ -38,7 +37,9 @@ function App() {
 
 				<div className="content">
 					{items.map((item) => {
-						return <Card title={item.title} price={item.price} imageUrl={item.imageUrl} />;
+						return (
+							<Card key={item.id} title={item.title} price={item.price} imageUrl={item.imageUrl} />
+						);
 					})}
 				</div>
 			</div>

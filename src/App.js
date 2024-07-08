@@ -1,10 +1,22 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Card from './components/Card/Card';
 import CartDrawer from './components/CartDrawer/CartDrawer';
 import Header from './components/Header/Header';
 
 function App() {
+	const [items, setItems] = useState([]);
 	const [cartOpened, setCartOpened] = useState(false);
+
+	useEffect(() => {
+		fetch('https://654cf1d077200d6ba859c0a0.mockapi.io/data')
+			.then((res) => {
+				return res.json();
+			})
+			.then((data) => {
+				setItems(data);
+				console.log(data, 'data');
+			});
+	}, []);
 
 	return (
 		<div className="wrapper">
@@ -25,7 +37,9 @@ function App() {
 				</div>
 
 				<div className="content">
-					<Card />
+					{items.map((item) => {
+						return <Card title={item.title} price={item.price} imageUrl={item.imageUrl} />;
+					})}
 				</div>
 			</div>
 		</div>

@@ -1,35 +1,29 @@
 import styles from './CartDrawer.module.scss';
 
-function CartDrawer(props) {
-	const a = 0;
+function CartDrawer({ onClose, cartItems = [] }) {
 	return (
 		<div className={styles.overlay}>
 			<div className={styles.drawer}>
 				<div className={styles.cartTop}>
 					<h2 className={styles.cartTitle}>Корзина</h2>
-					<button className={styles.remove} onClick={props.onClose}></button>
+					<button className={styles.remove} onClick={onClose}></button>
 				</div>
 				<div className={styles.items}>
-					<div className={styles.cartItem}>
-						<img src="/img/sneakers/1.jpg" alt="sneakers" width={70} height={70} />
-						<div className={styles.cartDiscriptionWrapper}>
-							<p className={styles.cartDiscription}>Мужские Кроссовки Nike Air Max 270</p>
-							<div className={styles.priceSum}>
-								12 999<span> руб.</span>
+					{cartItems.map((item) => {
+						return (
+							<div className={styles.cartItem} key={item.id}>
+								<img src={item.imageUrl} alt="sneakers" width={70} height={70} />
+								<div className={styles.cartDiscriptionWrapper}>
+									<p className={styles.cartDiscription}>{item.title}</p>
+									<div className={styles.priceSum}>
+										{item.price}
+										<span> руб.</span>
+									</div>
+								</div>
+								<button className={styles.remove}></button>
 							</div>
-						</div>
-						<button className={styles.remove}></button>
-					</div>
-					<div className={styles.cartItem}>
-						<img src="/img/sneakers/1.jpg" alt="sneakers" width={70} height={70} />
-						<div className={styles.cartDiscriptionWrapper}>
-							<p className={styles.cartDiscription}>Мужские Кроссовки Nike Air Max 270</p>
-							<div className={styles.priceSum}>
-								12 999<span> руб.</span>
-							</div>
-						</div>
-						<button className={styles.remove}></button>
-					</div>
+						);
+					})}
 				</div>
 
 				<div className={styles.cartTotalBlock}>

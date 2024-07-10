@@ -5,6 +5,8 @@ import Header from './components/Header/Header';
 
 function App() {
 	const [items, setItems] = useState([]);
+	const [cartItems, setCartItems] = useState([]);
+
 	const [cartOpened, setCartOpened] = useState(false);
 
 	useEffect(() => {
@@ -17,10 +19,20 @@ function App() {
 			});
 	}, []);
 
+	const handleClickPlus = (obj) => {
+		if (!cartItems.includes(obj)) {
+			setCartItems((prev) => [...prev, obj]);
+		} else {
+			// If obj IS in cartItems, remove it
+			setCartItems((prev) => prev.filter((item) => item !== obj));
+		}
+	};
+
 	return (
 		<div className="wrapper">
 			{cartOpened && (
 				<CartDrawer
+					cartItems={cartItems}
 					onClose={() => {
 						setCartOpened(false);
 					}}
@@ -38,7 +50,14 @@ function App() {
 				<div className="content">
 					{items.map((item) => {
 						return (
-							<Card key={item.id} title={item.title} price={item.price} imageUrl={item.imageUrl} />
+							<Card
+								key={item.id}
+								id={item.id}
+								title={item.title}
+								price={item.price}
+								imageUrl={item.imageUrl}
+								onAddToCart={() => handleClickPlus(item)}
+							/>
 						);
 					})}
 				</div>

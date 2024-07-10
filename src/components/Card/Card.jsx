@@ -2,10 +2,11 @@ import cn from 'classnames';
 import styles from './Card.module.scss';
 import { useState } from 'react';
 
-function Card({ title, price, imageUrl }) {
+function Card({ title, price, imageUrl, onAddToCart }) {
 	const [isInCart, setIsInCart] = useState(false);
 
-	const handleClickPlus = () => {
+	const handleClickPlus = (e) => {
+		onAddToCart();
 		setIsInCart(!isInCart);
 	};
 

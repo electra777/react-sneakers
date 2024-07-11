@@ -6,7 +6,7 @@ import Header from './components/Header/Header';
 function App() {
 	const [items, setItems] = useState([]);
 	const [cartItems, setCartItems] = useState([]);
-
+	const [searchValue, setSearchValue] = useState('');
 	const [cartOpened, setCartOpened] = useState(false);
 
 	useEffect(() => {
@@ -28,6 +28,10 @@ function App() {
 		}
 	};
 
+	const onChangeSearchInput = (e) => {
+		setSearchValue(e.target.value);
+	};
+
 	return (
 		<div className="wrapper">
 			{cartOpened && (
@@ -43,23 +47,42 @@ function App() {
 				<Header onClickCart={() => setCartOpened(true)} />
 
 				<div className="top">
-					<h1 className="title">Все кроссовки</h1>
-					<input type="text" placeholder="Поиск..." className="searchInput" />
+					<h1 className="title">
+						{searchValue ? `Поиск по запросу "${searchValue}"` : `Все кроссовки`}
+					</h1>
+					<div className="searchBlock">
+						<input
+							type="text"
+							placeholder="Поиск..."
+							className="searchInput"
+							onChange={onChangeSearchInput}
+							value={searchValue}
+						/>
+						{searchValue && (
+							<button
+								className="clearSearch"
+								onClick={() => {
+									setSearchValue('');
+								}}></button>
+						)}
+					</div>
 				</div>
 
 				<div className="content">
-					{items.map((item) => {
-						return (
-							<Card
-								key={item.id}
-								id={item.id}
-								title={item.title}
-								price={item.price}
-								imageUrl={item.imageUrl}
-								onAddToCart={() => handleClickPlus(item)}
-							/>
-						);
-					})}
+					{items
+						.filter((item) => item.title.toLowerCase().includes(searchValue))
+						.map((item) => {
+							return (
+								<Card
+									key={item.id}
+									id={item.id}
+									title={item.title}
+									price={item.price}
+									imageUrl={item.imageUrl}
+									onAddToCart={() => handleClickPlus(item)}
+								/>
+							);
+						})}
 				</div>
 			</div>
 		</div>

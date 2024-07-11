@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Card from './components/Card/Card';
 import CartDrawer from './components/CartDrawer/CartDrawer';
 import Header from './components/Header/Header';
+import axios from 'axios';
 
 function App() {
 	const [items, setItems] = useState([]);
@@ -10,26 +11,30 @@ function App() {
 	const [cartOpened, setCartOpened] = useState(false);
 
 	useEffect(() => {
-		fetch('https://654cf1d077200d6ba859c0a0.mockapi.io/data')
-			.then((res) => {
-				return res.json();
-			})
-			.then((data) => {
-				setItems(data);
-			});
+		axios.get('https://654cf1d077200d6ba859c0a0.mockapi.io/data').then((res) => {
+			setItems(res.data);
+		});
+		axios.get('https://654cf1d077200d6ba859c0a0.mockapi.io/cart').then((res) => {
+			setCartItems(res.data);
+		});
 	}, []);
 
 	const handleClickPlus = (obj) => {
 		if (!cartItems.includes(obj)) {
 			setCartItems((prev) => [...prev, obj]);
+			// поправить, чтобы не дублировалось на сервере при мульти кликах
+			axios.post('https://654cf1d077200d6ba859c0a0.mockapi.io/cart', obj);
 		} else {
 			// If obj IS in cartItems, remove it
 			setCartItems((prev) => prev.filter((item) => item !== obj));
+			axios.delete('https://654cf1d077200d6ba859c0a0.mockapi.io/cart', obj);
 		}
 	};
 
-	const onChangeSearchInput = (e) => {
-		setSearchValue(e.target.value);
+	const onRemoveItem = (id) => {
+		setCartItems((prev) => prev.filter((item) => item.id !== id));
+
+		// axios.delete(`https://654cf1d077200d6ba859c0a0.mockapi.io/cart${id}`);
 	};
 
 	return (
@@ -40,6 +45,7 @@ function App() {
 					onClose={() => {
 						setCartOpened(false);
 					}}
+					onRemoveItem={onRemoveItem}
 				/>
 			)}
 
@@ -55,7 +61,9 @@ function App() {
 							type="text"
 							placeholder="Поиск..."
 							className="searchInput"
-							onChange={onChangeSearchInput}
+							onChange={(e) => {
+								setSearchValue(e.target.value);
+							}}
 							value={searchValue}
 						/>
 						{searchValue && (

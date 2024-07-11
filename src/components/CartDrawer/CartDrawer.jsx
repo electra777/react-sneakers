@@ -1,6 +1,6 @@
 import styles from './CartDrawer.module.scss';
 
-function CartDrawer({ onClose, cartItems = [] }) {
+function CartDrawer({ onClose, cartItems = [], onRemoveItem }) {
 	return (
 		<div className={styles.overlay}>
 			<div className={styles.drawer}>
@@ -8,6 +8,7 @@ function CartDrawer({ onClose, cartItems = [] }) {
 					<h2 className={styles.cartTitle}>Корзина</h2>
 					<button className={styles.remove} onClick={onClose}></button>
 				</div>
+
 				<div className={styles.items}>
 					{cartItems.map((item) => {
 						return (
@@ -20,7 +21,11 @@ function CartDrawer({ onClose, cartItems = [] }) {
 										<span> руб.</span>
 									</div>
 								</div>
-								<button className={styles.remove}></button>
+								<button
+									className={styles.remove}
+									onClick={() => {
+										onRemoveItem(item.id);
+									}}></button>
 							</div>
 						);
 					})}

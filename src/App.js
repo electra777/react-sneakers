@@ -3,10 +3,12 @@ import Card from './components/Card/Card';
 import CartDrawer from './components/CartDrawer/CartDrawer';
 import Header from './components/Header/Header';
 import axios from 'axios';
+import { Link, Route } from 'react-router-dom';
 
 function App() {
 	const [items, setItems] = useState([]);
 	const [cartItems, setCartItems] = useState([]);
+	const [favoriteItems, setFavoriteItems] = useState([]);
 	const [searchValue, setSearchValue] = useState('');
 	const [cartOpened, setCartOpened] = useState(false);
 
@@ -37,6 +39,17 @@ function App() {
 		// axios.delete(`https://654cf1d077200d6ba859c0a0.mockapi.io/cart${id}`);
 	};
 
+	const handleClickFavorite = (obj) => {
+		if (!favoriteItems.includes(obj)) {
+			setFavoriteItems((prev) => [...prev, obj]);
+			// поправить, чтобы не дублировалось на сервере при мульти кликах
+			axios.post('https://654cf1d077200d6ba859c0a0.mockapi.io/favorites', obj);
+		} else {
+			setFavoriteItems((prev) => prev.filter((item) => item !== obj));
+			axios.delete('https://654cf1d077200d6ba859c0a0.mockapi.io/favorites', obj);
+		}
+	};
+
 	return (
 		<div className="wrapper">
 			{cartOpened && (
@@ -48,6 +61,8 @@ function App() {
 					onRemoveItem={onRemoveItem}
 				/>
 			)}
+
+			<Link to={'/test'}>test</Link>
 
 			<div className="container">
 				<Header onClickCart={() => setCartOpened(true)} />
@@ -88,6 +103,7 @@ function App() {
 									price={item.price}
 									imageUrl={item.imageUrl}
 									onAddToCart={() => handleClickPlus(item)}
+									onAddToFavorite={() => handleClickFavorite}
 								/>
 							);
 						})}

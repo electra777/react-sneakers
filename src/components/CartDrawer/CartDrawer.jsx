@@ -61,7 +61,7 @@ function CartDrawer({ onClose, cartItems = [], onRemoveItem }) {
 						<div className={styles.emptyText}>
 							Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.
 						</div>
-						<button className={cn(styles.greenBtn, styles.greenBtnBack)}>
+						<button className={cn(styles.greenBtn, styles.greenBtnBack)} onClick={onClose}>
 							<img src="/img/arrow-left.svg" alt="arrow"></img>
 							Вернуться назад
 						</button>

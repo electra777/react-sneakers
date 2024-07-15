@@ -2,17 +2,24 @@ import cn from 'classnames';
 import styles from './Card.module.scss';
 import { useState } from 'react';
 
-function Card({ title, price, imageUrl, onAddToCart }) {
+function Card({ title, price, imageUrl, onAddToCart, onAddToFavorite }) {
 	const [isInCart, setIsInCart] = useState(false);
+	const [isFavorite, setIsFavorite] = useState(false);
 
 	const handleClickPlus = (e) => {
 		onAddToCart();
 		setIsInCart(!isInCart);
 	};
+	const handleClickFavorite = (e) => {
+		onAddToFavorite();
+		setIsFavorite(!isFavorite);
+	};
 
 	return (
 		<div className={styles.card}>
-			<button className={cn(styles.favorite, styles.liked)}></button>
+			<button
+				onClick={handleClickFavorite}
+				className={cn(styles.favorite, { [styles.liked]: isFavorite })}></button>
 
 			<img width={133} height={112} src={imageUrl} alt="sneakers" className={styles.sneakersImg} />
 			<p className={styles.description}>{title}</p>

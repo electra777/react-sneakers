@@ -1,10 +1,16 @@
+import { Link } from 'react-router-dom';
+import BtnBack from '../components/BtnBack/BtnBack';
 import Card from '../components/Card/Card';
 
 function Favorites({ handleClickFavorite, favoriteItems }) {
 	return (
 		<div>
 			<div className="top">
-				<h1 className="title">Избранные кроссовки</h1>
+				<Link to="/">
+					<BtnBack />
+				</Link>
+
+				<h1 className="title">Мои закладки</h1>
 			</div>
 			{favoriteItems.map((item) => {
 				return (

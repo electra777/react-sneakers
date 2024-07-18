@@ -1,6 +1,6 @@
 import Card from '../components/Card/Card';
 
-function Home({ items, searchValue, setSearchValue, handleClickPlus, handleClickFavorite }) {
+function Home({ items = [], searchValue, setSearchValue, handleClickPlus, handleClickFavorite }) {
 	return (
 		<div>
 			<div className="top">
@@ -28,21 +28,22 @@ function Home({ items, searchValue, setSearchValue, handleClickPlus, handleClick
 			</div>
 
 			<div className="content">
-				{items
-					.filter((item) => item.title.toLowerCase().includes(searchValue))
-					.map((item) => {
-						return (
-							<Card
-								key={item.id}
-								id={item.id}
-								title={item.title}
-								price={item.price}
-								imageUrl={item.imageUrl}
-								onAddToCart={() => handleClickPlus(item)}
-								onAddToFavorite={() => handleClickFavorite}
-							/>
-						);
-					})}
+				{items &&
+					items
+						.filter((item) => item.title.toLowerCase().includes(searchValue))
+						.map((item) => {
+							return (
+								<Card
+									key={item.id}
+									id={item.id}
+									title={item.title}
+									price={item.price}
+									imageUrl={item.imageUrl}
+									onAddToCart={() => handleClickPlus(item)}
+									onAddToFavorite={() => handleClickFavorite(item)}
+								/>
+							);
+						})}
 			</div>
 		</div>
 	);

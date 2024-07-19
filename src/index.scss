@@ -159,9 +159,33 @@ input[type='submit'] {
   gap: 40px;
 }
 
+.contentEmpty {
+  height: 100vh;
+  margin-top: 250px         ;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
 
+.sadSmile {
+  width: 70px;
+  height: 70px;
+  background: url('../public/img/sad-smile.png') no-repeat center;
+  margin-bottom: 25px;
+}
 
+.sadTitle {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
 
+.sadText {
+  font-size: 16px;
+  color: #999999;
+  margin-bottom: 70px;
+}
 
 @media (max-width: 1080px) {
   .content {

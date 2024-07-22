@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
-import Card from '../components/Card/Card';
 import BtnBack from '../components/BtnBack/BtnBack';
-import BtnGreen from '../components/BtnGreen/BtnGreen';
+import Card from '../components/Card/Card';
 
-function Favorites({ favoriteItems = [], handleClickPlus, handleClickFavorite, onClose }) {
+function Card({ cartItems = [], handleClickPlus, handleClickFavorite }) {
 	return (
 		<div>
 			{favoriteItems.length !== 0 ? (
@@ -37,7 +36,7 @@ function Favorites({ favoriteItems = [], handleClickPlus, handleClickFavorite, o
 					<h2 className="sadTitle">Закладок нет :(</h2>
 					<div className="sadText">Вы ничего не добавляли в закладки</div>
 					<Link to="/">
-						<BtnGreen onClose={onClose} />
+						<BtnBack />
 					</Link>
 				</div>
 			)}
@@ -45,4 +44,4 @@ function Favorites({ favoriteItems = [], handleClickPlus, handleClickFavorite, o
 	);
 }
 
-export default Favorites;
+export default Card;

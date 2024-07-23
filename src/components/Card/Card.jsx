@@ -2,9 +2,9 @@ import cn from 'classnames';
 import styles from './Card.module.scss';
 import { useState } from 'react';
 
-function Card({ title, price, imageUrl, onAddToCart, onAddToFavorite }) {
+function Card({ title, price, imageUrl, onAddToCart, onAddToFavorite, favorited = false }) {
 	const [isInCart, setIsInCart] = useState(false);
-	const [isFavorite, setIsFavorite] = useState(false);
+	const [isFavorite, setIsFavorite] = useState(favorited);
 
 	const handleClickPlus = (e) => {
 		onAddToCart();

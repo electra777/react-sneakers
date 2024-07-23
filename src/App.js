@@ -46,14 +46,19 @@ function App() {
 		// axios.delete(`https://654cf1d077200d6ba859c0a0.mockapi.io/cart${id}`);
 	};
 
-	const handleClickFavorite = (obj) => {
-		if (!favoriteItems.includes(obj)) {
-			setFavoriteItems((prev) => [...prev, obj]);
-			// поправить, чтобы не дублировалось на сервере при мульти кликах
-			// axios.post('https://654cf1d077200d6ba859c0a0.mockapi.io/favorites', obj);
-		} else {
-			setFavoriteItems((prev) => prev.filter((item) => item !== obj));
-			// axios.delete('https://654cf1d077200d6ba859c0a0.mockapi.io/favorites', obj);
+	const handleClickFavorite = async (obj) => {
+		try {
+			if (!favoriteItems.includes(obj)) {
+				setFavoriteItems((prev) => [...prev, obj]);
+				// поправить, чтобы не дублировалось на сервере при мульти кликах
+				// const resp = await axios.post('https://654cf1d077200d6ba859c0a0.mockapi.io/favorites', obj);
+			} else {
+				//TODO удалить удаление из стейта, после настройки бэк чтобы визуально карточка оставалась #5 2:30
+				setFavoriteItems((prev) => prev.filter((item) => item !== obj));
+				// axios.delete('https://654cf1d077200d6ba859c0a0.mockapi.io/favorites', obj);
+			}
+		} catch (err) {
+			alert('Не удалось добавить в избранное. Попробуйте ещё раз');
 		}
 	};
 

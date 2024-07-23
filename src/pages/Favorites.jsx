@@ -26,6 +26,7 @@ function Favorites({ favoriteItems = [], handleClickPlus, handleClickFavorite, o
 									imageUrl={item.imageUrl}
 									onAddToCart={() => handleClickPlus(item)}
 									onAddToFavorite={() => handleClickFavorite(item)}
+									favorited={true}
 								/>
 							);
 						})}
